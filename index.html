@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Sahithi Gangasani, software developer: projects, experience, skills and education.">
+<title>Sahithi Gangasani</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column that reads like a document. Key phrases in the intro are highlighted, and the highlights become the summary beside it. */
+:root {
+  --bg: #F2F4F7;
+  --surface: #FFFFFF;
+  --fg: #14181F;
+  --muted: #566170;
+  --line: #D5DBE3;
+  --mark: #FFE55C;
+  --mark-fg: #14181F;
+  --link: #1F4FD8;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1217; --surface: #161C23; --fg: #E8ECF1; --muted: #9AA6B4;
+    --line: #27303A; --mark: #FFE55C; --mark-fg: #14181F; --link: #8FB0FF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1217; --surface: #161C23; --fg: #E8ECF1; --muted: #9AA6B4;
+  --line: #27303A; --mark: #FFE55C; --mark-fg: #14181F; --link: #8FB0FF;
+  color-scheme: dark;
+}
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-block: 56px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; }
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+mark {
+  background: linear-gradient(transparent 12%, var(--mark) 12%, var(--mark) 92%, transparent 92%);
+  color: var(--mark-fg);
+  padding: 0 0.15em;
+  margin: 0 -0.15em;
+  border-radius: 2px;
+}
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+h1 { font-weight: 700; font-size: clamp(44px, 9vw, 84px); line-height: 0.98; letter-spacing: -0.03em; }
+h2 { font-weight: 700; font-size: clamp(28px, 5vw, 40px); line-height: 1.1; letter-spacing: -0.02em; }
+h3 { font-weight: 700; font-size: clamp(22px, 4vw, 28px); line-height: 1.15; letter-spacing: -0.01em; }
+section { display: flex; flex-direction: column; gap: 28px; }
+.sec-head { display: flex; flex-direction: column; gap: 8px; }
+
+/* Hero */
+header { display: flex; flex-direction: column; gap: 24px; }
+.sub { display: flex; flex-wrap: wrap; gap: 4px 18px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.doc { margin: 0; font-size: 19px; line-height: 1.75; }
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+.summary ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.5; }
+.summary li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 8px; }
+.summary li::before { content: ""; width: 10px; height: 10px; margin-top: 6px; background: var(--mark); border-radius: 2px; }
+
+/* Projects */
+.project { display: flex; flex-direction: column; gap: 24px; padding-top: 28px; border-top: 2px solid var(--fg); }
+.project p { margin: 0; max-width: 64ch; }
+.project .lede { color: var(--muted); }
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.how li { display: flex; flex-direction: column; gap: 4px; }
+.how strong { font-family: var(--font-display); font-size: 18px; }
+.how span { color: var(--muted); font-size: 15px; line-height: 1.5; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+.sub-label { margin: 0 0 10px; }
+.spec { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); border-top: 1px solid var(--line); }
+.spec dt, .spec dd { margin: 0; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.spec dt { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-right: 22px; padding-top: 14px; }
+.spec dd { font-size: 16px; }
+.list { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.55; }
+.list li::marker { color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  font-family: var(--font-body); font-weight: 500; font-size: 15px;
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
+  border-radius: 6px; text-decoration: none; cursor: pointer;
+  background: var(--fg); color: var(--bg); border: 1px solid var(--fg);
+}
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.btn:hover { border-color: var(--fg); }
+.more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.more a.item { display: flex; flex-direction: column; gap: 4px; padding: 16px 16px 16px 0; text-decoration: none; color: var(--fg); border-bottom: 1px solid var(--line); }
+.more a.item strong { font-family: var(--font-display); font-size: 18px; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.more a.item:hover strong { text-decoration-color: var(--fg); }
+.more a.item span { font-size: 14px; color: var(--muted); line-height: 1.45; }
+
+/* Experience */
+.job { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 12px 32px; padding-top: 20px; border-top: 1px solid var(--line); }
+.job-meta { display: flex; flex-direction: column; gap: 2px; }
+.job-meta strong { font-family: var(--font-display); font-size: 20px; }
+.job-meta span { font-size: 14px; color: var(--muted); }
+.job-meta .when { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
+
+/* Skills */
+.skills { margin: 0; display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); border-top: 1px solid var(--line); }
+.skills dt, .skills dd { margin: 0; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.skills dt { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 15px; padding-right: 16px; }
+.skills dd { font-size: 16px; }
+
+/* Contact */
+footer { display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--line); padding-top: 32px; }
+.mail { font-family: var(--font-mono); font-size: clamp(16px, 3.6vw, 22px); overflow-wrap: anywhere; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.small { color: var(--muted); font-size: 14px; margin: 0; }
+
+@media (max-width: 720px) {
+  body { padding-block: 36px 56px; }
+  .wrap { gap: 60px; }
+  .hero-grid, .cols, .how, .job, .more { grid-template-columns: minmax(0, 1fr); }
+  .doc { font-size: 18px; }
+  .skills { grid-template-columns: minmax(0, 1fr); }
+  .skills dt { border-bottom: 0; padding-bottom: 0; }
+  .more a.item { padding-right: 0; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="label">Portfolio</span>
+    <h1>Sahithi Gangasani</h1>
+    <div class="sub"><span>Software Developer</span><span>Austin, TX</span><span>M.S. Computer Science</span></div>
+    <div class="hero-grid">
+      <p class="doc">
+        I design, build, test and maintain <mark>Java and Python applications</mark>, with
+        <mark>REST APIs and React front ends</mark> on top of relational databases. I have worked in Agile
+        teams, supported <mark>production systems</mark>, and written the tests and documentation that keep them maintainable.
+      </p>
+      <aside class="summary" aria-label="Summary of the paragraph">
+        <span class="label">Summary</span>
+        <ul>
+          <li>Java and Python applications</li>
+          <li>REST APIs and React front ends</li>
+          <li>Production support, tests and documentation</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <section id="projects">
+    <div class="sec-head">
+      <span class="label">Projects</span>
+      <h2>What I built and how</h2>
+    </div>
+
+    <article class="project">
+      <div class="sec-head">
+        <span class="label">Full-stack project · Java, Spring Boot, MySQL, JavaScript</span>
+        <h3>LabTool Inventory Management System</h3>
+      </div>
+      <p class="lede">A full-stack application for managing lab tools and keeping track of their availability.</p>
+      <ul class="list">
+        <li>Create, update, view, search and filter tools, with basic workflow actions on each one.</li>
+        <li>REST API in Java with Spring Boot, split into controller, service and repository layers, with validation and error handling on every response.</li>
+        <li>Spring Data JPA and Hibernate on a MySQL database, with a JavaScript single-page front end.</li>
+        <li>GitHub Actions runs continuous integration on the repository.</li>
+      </ul>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/sahithi20102000/labtool-management" target="_blank" rel="noopener">View code on GitHub</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="sec-head">
+        <span class="label">React · JavaScript</span>
+        <h3>ShopSmart</h3>
+      </div>
+      <p class="lede">A React web app, bootstrapped with Create React App and deployed on Vercel.</p>
+      <div class="links">
+        <a class="btn" href="https://shopsmart-puce.vercel.app" target="_blank" rel="noopener">Try it live</a>
+        <a class="btn ghost" href="https://github.com/sahithi20102000/shopsmart" target="_blank" rel="noopener">View code on GitHub</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="sec-head">
+        <span class="label">Web app</span>
+        <h3>Shadow AI Privacy Auditor</h3>
+      </div>
+      <p class="lede">A web app deployed on Vercel.</p>
+      <div class="links">
+        <a class="btn" href="https://shadow-ai-privacy-auditor-two.vercel.app" target="_blank" rel="noopener">Try it live</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="sec-head">
+        <span class="label">Python, FAISS, Hugging Face Transformers</span>
+        <h3>Agent-Based Intelligent Tutor and Quiz Bot</h3>
+      </div>
+      <p class="lede">A Python application that generates quizzes and answers questions from PDF learning materials.</p>
+      <ul class="list">
+        <li>Designed the architecture for a retrieval-augmented generation pipeline, using FAISS and Hugging Face Transformers, so answers come directly from the course PDFs. Response latency dropped by 28 percent.</li>
+        <li>Built and tested agent modules for concept extraction, multiple-choice question generation and response evaluation. Repeated context lookups fell by 40 percent.</li>
+        <li>Raised learner engagement by 35 percent, and documented the architecture and configuration steps for future maintenance.</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <div class="sec-head">
+        <span class="label">Solo project · Python, FastAPI, Claude API</span>
+        <h3>AI Document Summarizer</h3>
+      </div>
+      <p class="lede">A web app and API that turns a PDF, a text file or pasted text into a short executive summary of three to five bullet points.</p>
+
+      <ol class="how">
+        <li><strong>Upload</strong><span>A PDF, a text file or pasted text goes to the API. Files are capped at 4 MB.</span></li>
+        <li><strong>Extract</strong><span>PyPDF2 reads each PDF page. Empty or unreadable files return a clear error.</span></li>
+        <li><strong>Summarize</strong><span>The first 4,000 characters go to Claude, and the bullets come back to the page.</span></li>
+      </ol>
+
+      <div class="cols">
+        <div>
+          <p class="label sub-label">Engineering decisions</p>
+          <ul class="list">
+            <li>Started on AWS Bedrock and S3, then moved to the Claude API. That removed two cloud services and left one secret to manage.</li>
+            <li>Capped upload size and the text sent to the model, which keeps cost and response time predictable.</li>
+            <li>Kept the API key in an environment variable so it never appears in the repository.</li>
+            <li>Tests replace the model call with a stub, so continuous integration runs without a key or any spend.</li>
+          </ul>
+        </div>
+        <dl class="spec">
+          <dt>Backend</dt><dd>Python, FastAPI, PyPDF2</dd>
+          <dt>AI</dt><dd>Claude API</dd>
+          <dt>Testing</dt><dd>pytest, run by GitHub Actions on every push</dd>
+          <dt>Hosting</dt><dd>Vercel, deployed from GitHub</dd>
+        </dl>
+      </div>
+
+      <div class="links">
+        <a class="btn" href="https://ai-document-summarizer-pq2f.vercel.app" target="_blank" rel="noopener">Try it live</a>
+        <a class="btn ghost" href="https://github.com/sahithi20102000/ai-document-summarizer" target="_blank" rel="noopener">View code on GitHub</a>
+      </div>
+    </article>
+
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <span class="label">Experience</span>
+      <h2>Where I have worked</h2>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <strong>Texas Tech University</strong>
+        <span>Student Assistant</span>
+        <span>Lubbock, Texas</span>
+        <span class="when">May 2024 – Dec 2025</span>
+      </div>
+      <ul class="list">
+        <li>Built Python applications for intelligent tutoring systems and improved information retrieval accuracy by 45 percent through iterative changes.</li>
+        <li>Designed and maintained Python data processing pipelines for research applications, improving data quality by 30 percent.</li>
+        <li>Reviewed code and raised automated test coverage from 40 to 85 percent, which cut regression defects by 50 percent.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <strong>Tata Elxsi</strong>
+        <span>Software Developer</span>
+        <span>Hyderabad, India</span>
+        <span class="when">Jun 2022 – Dec 2023</span>
+      </div>
+      <ul class="list">
+        <li>Built and maintained Java 17 and Spring Boot applications for railway operations. SQL query and database improvements raised application performance by 45 percent.</li>
+        <li>Developed responsive React.js interfaces over REST APIs for more than 500 engineers.</li>
+        <li>Wrote Python automation with pandas and openpyxl that saved more than 15 hours of manual work a week.</li>
+        <li>Investigated production issues, found root causes, shipped fixes and kept technical documentation current, working in Agile teams with business stakeholders.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <span class="label">Skills</span>
+      <h2>Tools I use</h2>
+    </div>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Java 17, Python, SQL, JavaScript, TypeScript, R</dd>
+      <dt>Web</dt><dd>Spring Boot, Spring MVC, REST APIs, FastAPI, React.js, Redux, HTML5, CSS3</dd>
+      <dt>Databases</dt><dd>PostgreSQL, MySQL, query optimization, relational database design</dd>
+      <dt>Data and AI</dt><dd>pandas, openpyxl, FAISS, Hugging Face Transformers</dd>
+      <dt>Delivery</dt><dd>Git, GitHub Actions, Jenkins, Docker, JIRA, pytest</dd>
+      <dt>Cloud</dt><dd>AWS (Lambda, S3, EC2, API Gateway, RDS), Azure</dd>
+    </dl>
+  </section>
+
+  <section id="education">
+    <div class="sec-head">
+      <span class="label">Education</span>
+      <h2>Where I studied</h2>
+    </div>
+    <div class="job">
+      <div class="job-meta">
+        <strong>Texas Tech University</strong>
+        <span class="when">Jan 2024 – Dec 2025</span>
+      </div>
+      <p style="margin:0;font-size:18px;">Master of Science in Computer Science</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="label">Contact</span>
+    <div class="mail">
+      <span id="email">gangasanisahithi20@gmail.com</span>
+      <button class="btn ghost" id="copy" type="button">Copy address</button>
+    </div>
+    <p class="small"><a href="https://github.com/sahithi20102000" target="_blank" rel="noopener">github.com/sahithi20102000</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById("copy");
+  var addr = document.getElementById("email");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy address"; }, 1800); };
+    var select = function () {
+      try {
+        var r = document.createRange(); r.selectNodeContents(addr);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "Selected, press copy";
+      } catch (e) {}
+    };
+    try {
+      navigator.clipboard.writeText(addr.textContent).then(done, select);
+    } catch (e) { select(); }
+  });
+})();
+</script>
+</body>
+</html>
